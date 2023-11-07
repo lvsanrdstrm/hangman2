@@ -66,6 +66,7 @@ export default class Game {
       let positions = this.secretWord.getLetterPositions(letter)
       this.foundWord.applyFoundLetter(letter, positions)
       print("You found \n" + this.foundWord.asString)
+      print('Good job, but never lower your guard. You only have ' + this.gallows.stages.length + ' tries left and still ' + this.lettersLeft() + ' letters to find...')
       this.usedLetters.push(letter)
       print('You have now tried the following letters: ' + this.usedLetters)
       // check if word i complete (no empty slots)? exit to win round
@@ -74,6 +75,7 @@ export default class Game {
       //  (x)  not found        store  x in used chars, add part to gallows
       print(this.gallows.step())
       this.usedLetters.push(letter)
+      print('You are closing up on a certain death. Only ' + this.gallows.stages.length + ' tries left and still ' + this.lettersLeft() + ' letters to find... Do you enjoy living? Try harder.')
       print('You have now tried the following letters: ' + this.usedLetters)
       // check if gallows is done? exit to loose round
       this.checkLoose()
