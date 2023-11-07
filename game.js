@@ -21,8 +21,8 @@ export default class Game {
     // create a new gallows
     this.gallows = new Gallows()
     // 10. ask for secret word                         bass
-    let question = new Question("Type the secret word, don't show your opponent: ")
-    this.secretWord = new SecretWord(question.answer)
+    // let question = new Question("Type the secret word, don't show your opponent: ") gamla koden, dold för ska testa hämta på annat sätt
+    this.secretWord = new SecretWord("potatis")
     print("The secret word has " + this.secretWord.length + " letters")
     // process secret word into chars                  b a s s
     // store found word as empty positions for chars   _ _ _ _
