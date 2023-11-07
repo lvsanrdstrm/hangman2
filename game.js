@@ -2,6 +2,7 @@ import SecretWord from "./secret-word.js"
 import Question from "./question.js"
 import FoundWord from "./found-word.js"
 import Gallows from "./gallows.js"
+import HemligtOrd from "./generera-ord.js"
 
 const print = console.log
 
@@ -10,6 +11,7 @@ export default class Game {
   secretWord
   foundWord
   gallows
+  hemligtOrd
 
   constructor() {
     print("Welcome to a simple game of hangman. You are doomed!")
@@ -22,7 +24,8 @@ export default class Game {
     this.gallows = new Gallows()
     // 10. ask for secret word                         bass
     // let question = new Question("Type the secret word, don't show your opponent: ") gamla koden, dold för ska testa hämta på annat sätt
-    this.secretWord = new SecretWord("potatis")
+    this.hemligtOrd = new HemligtOrd()
+    this.secretWord = new SecretWord(this.hemligtOrd.getSecretWord())
     print("The secret word has " + this.secretWord.length + " letters")
     // process secret word into chars                  b a s s
     // store found word as empty positions for chars   _ _ _ _
