@@ -13,6 +13,8 @@ export default class Game {
   gallows
   hemligtOrd
 
+  usedLetters = []
+
   constructor() {
     print("Welcome to a simple game of hangman. You are doomed!")
     this.runRound()
@@ -41,7 +43,21 @@ export default class Game {
 
   guessWord() {
     let letter = new Question("Guess a letter: ").answer
+    // kod som testar input är bokstav och endast ett tecken
     print("You guessed " + letter)
+    do {
+      if (!this.isOnlyLetters(letter)) {
+        print("Please enter letters only.")
+        break
+      }
+      if (!this.isOnlyOneLetter(letter)) {
+        print("Please enter only one letter.")
+        break
+      }
+    } while (!this.isOnlyLetters(letter) || !this.isOnlyOneLetter(letter))
+    if (this.usedLetters.includes(letter)) {
+      print('You already tried this letter, you moron')
+    }
     // find if the letter is in the secret word
     if (this.secretWord.isLetterInSecretWord(letter)) {
       //  (b)  found            store  x in used chars,  b _ _ _
@@ -49,14 +65,28 @@ export default class Game {
       let positions = this.secretWord.getLetterPositions(letter)
       this.foundWord.applyFoundLetter(letter, positions)
       print("You found \n" + this.foundWord.asString)
+      this.usedLetters.push(letter)
+      print('You have now tried the following letters: ' + this.usedLetters)
       // check if word i complete (no empty slots)? exit to win round
       this.checkWin()
     } else {
       //  (x)  not found        store  x in used chars, add part to gallows
       print(this.gallows.step())
+      this.usedLetters.push(letter)
+      print('You have now tried the following letters: ' + this.usedLetters)
       // check if gallows is done? exit to loose round
       this.checkLoose()
     }
+  }
+
+  isOnlyLetters(userInput) {
+    // Check if userInput is only letters
+    return /^[A-Ö]+$/.test(userInput) // +:et gör att den testar för mer än ett tecken. [A-Ö] kollar att det är ETT tecken mellan de två
+  }
+
+  isOnlyOneLetter(userInput) {
+    // Check if userInput is only one letter
+    return /^[A-Ö]$/.test(userInput) // [A-Ö] kollar att det är ETT tecken 
   }
 
   checkWin() {
@@ -75,6 +105,11 @@ export default class Game {
       // goto 20
       this.guessWord()
     }
+  }
+
+  lettersLeft() {
+    let letterseLeftCount = this.foundWord.letters.filter(element => /[\*]+/g.test(element))
+    return letterseLeftCount.length
   }
 
 }
