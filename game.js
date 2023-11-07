@@ -48,15 +48,16 @@ export default class Game {
     do {
       if (!this.isOnlyLetters(letter)) {
         print("Please enter letters only.")
-        break
+        this.guessWord()
       }
       if (!this.isOnlyOneLetter(letter)) {
         print("Please enter only one letter.")
-        break
+        this.guessWord()
       }
     } while (!this.isOnlyLetters(letter) || !this.isOnlyOneLetter(letter))
     if (this.usedLetters.includes(letter)) {
       print('You already tried this letter, you moron')
+      this.guessWord()
     }
     // find if the letter is in the secret word
     if (this.secretWord.isLetterInSecretWord(letter)) {
