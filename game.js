@@ -56,4 +56,22 @@ export default class Game {
     }
   }
 
+  heckWin() {
+    if (!this.foundWord.letters.includes('*')) {
+      print("Congratulations, you barely survived this time \n" + this.foundWord.asString)
+    } else {
+      // goto 20
+      this.guessWord()
+    }
+  }
+
+  checkLoose() {
+    if (this.gallows.stages.length == 0) {
+      print("Wonderful, you got to hang! \n" + "The word was " + this.secretWord.asString)
+    } else {
+      // goto 20
+      this.guessWord()
+    }
+  }
+
 }
