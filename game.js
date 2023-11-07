@@ -56,7 +56,7 @@ export default class Game {
     }
   }
 
-  heckWin() {
+  checkWin() {
     if (!this.foundWord.letters.includes('*')) {
       print("Congratulations, you barely survived this time \n" + this.foundWord.asString)
     } else {
