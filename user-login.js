@@ -34,6 +34,7 @@ export default class UserLogIn {
         users.push(new User(dbUser[0], dbUser[1]))
     }
 
+
     let user
     const username = prompt("please enter your username: ")
     const password = prompt("please enter your password: ")
