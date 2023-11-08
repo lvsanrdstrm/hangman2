@@ -1,8 +1,7 @@
 import { appendFile, appendFileSync, readFileSync } from 'node:fs'
 
-let secretWordlist = readFileSync("data/ordlista.csv", "utf8")
+let secretWordlist = readFileSync("data/wordlist.csv", "utf8")
 secretWordlist = secretWordlist.trim().split(",")
-
 
 
 export default class RandomSecretWord {
