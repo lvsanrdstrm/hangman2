@@ -24,7 +24,7 @@ export default class UserLogIn {
 
     for (let dbUser of dbUsers) {
       dbUser = dbUser.split(",")
-      if (!user.includes(dbUser))
+      if (!users.includes(dbUser))
         users.push(new User(dbUser[0], dbUser[1]))
     }
 
