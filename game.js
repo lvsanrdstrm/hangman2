@@ -112,7 +112,7 @@ export default class Game {
 
   checkLoose() {
     if (this.gallows.stages.length == 0) {
-      print("Wonderful, you got to hang! \n" + "The word was " + this.secretWord.asString)
+      print("Game over, you got to hang! \n" + "The word was " + this.secretWord.asString)
     } else {
       // goto 20
       this.guessWord()
