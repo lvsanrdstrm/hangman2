@@ -99,12 +99,9 @@ export default class Game {
   checkWin() {
     if (!this.foundWord.letters.includes('*')) {
       print("Congratulations, you barely survived this time \n" + this.foundWord.asString)
-      this.answer = new Question("Do you want to play again? Press Y to play again or any key to exit.")
-      if (this.answer == "Y") {
-        new Game()
-      } else {
-        print("Goodbye!")
-      }
+      let addWord = new Question("Your prize is that you get to add a word to the wordlist: ")
+      this.addWordToList = new RandomSecretWord()
+      this.addToList = this.addWordToList.addSecretWord(addWord.answer)
     } else {
       // goto 20
       this.guessWord()

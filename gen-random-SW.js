@@ -12,4 +12,8 @@ export default class RandomSecretWord {
     return randomSecretWord
   }
 
+  addSecretWord(word) {
+    appendFileSync('data/wordlist.csv', word + '\n', 'utf8')
+  }
+
 }
