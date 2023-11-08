@@ -10,15 +10,12 @@ let dbUsers = readFileSync("data/users.csv", "utf8")
 
 dbUsers = dbUsers.trim().split("\r\n")
 
-print(dbUsers)
-
 let users = []
 
 for (let dbUser of dbUsers) {
   dbUser = dbUser.split(",")
   users.push(new User(dbUser[0], dbUser[1]))
 }
-print(users)
 
 /* tetar dölja denna och se om den funkar att ha i klassen
 for (let dbUser of dbUsers) {
@@ -40,6 +37,7 @@ export default class UserLogIn {
     let user
     const username = prompt("please enter your username: ")
     const password = prompt("please enter your password: ")
+
 
     for (let savedUser of users) {
       if (savedUser.checkCredentials(username, password)) {
