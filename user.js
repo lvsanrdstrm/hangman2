@@ -1,4 +1,20 @@
-import UserLogIn from "./user-login"
+import PromptSync from 'prompt-sync'
+import { appendFileSync, readFileSync } from 'node:fs'
+
+const print = console.log
+
+const prompt = PromptSync({ sigint: true })
+
+let dbUsers = readFileSync("data/users.csv", "utf8")
+
+dbUsers = dbUsers.trim().split("\r\n")
+
+let users = []
+
+for (let dbUser of dbUsers) {
+  dbUser = dbUser.split(",")
+  users.push(new User(dbUser[0], dbUser[1]))
+}
 
 export default class User {
   name
