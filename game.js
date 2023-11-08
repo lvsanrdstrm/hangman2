@@ -3,6 +3,7 @@ import Question from "./question.js"
 import FoundWord from "./found-word.js"
 import Gallows from "./gallows.js"
 import RandomSecretWord from "./gen-random-SW.js"
+import UserLogIn from "./user-login.js"
 
 const print = console.log
 

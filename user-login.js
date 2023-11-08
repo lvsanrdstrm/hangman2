@@ -15,19 +15,23 @@ for (let dbUser of dbUsers) {
   users.push(new User(dbUser[0], dbUser[1]))
 }
 
-let user
+export default class UserLogIn {
 
-const username = prompt("please enter your username: ")
-const password = prompt("please enter your password: ")
+  user
+  username = prompt("please enter your username: ")
+  password = prompt("please enter your password: ")
 
-for (let savedUser of users) {
-  if (savedUser.checkCredentials(username, password)) {
-    user = savedUser
+  logInUser() {
+    for (let savedUser of users) {
+      if (savedUser.checkCredentials(username, password)) {
+        user = savedUser
+      }
+    }
+    if (user) {
+      console.log("Welcome, " + user.name)
+    } else {
+      console.log("couldn't find a user with the given username and password combo")
+    }
   }
-}
 
-if (user) {
-  console.log("Welcome, " + user.name)
-} else {
-  console.log("couldn't find a user with the given username and password combo")
 }
