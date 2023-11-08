@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { appendFile, appendFileSync, readFileSync } from 'node:fs'
 import PromptSync from 'prompt-sync'
 import User from "./user.js"
 
@@ -41,8 +41,11 @@ export default class UserLogIn {
   createUser() {
     username = prompt("please enter your username: ")
     password = prompt("please enter your password: ")
-    users.push(new User(username, password))
+    appendFileSync('users.csv', username + ',' + password + '\n', 'utf8')
+    // tror inte ja behöver detta om ja appendar till users.csv 
+    // users.push(new User(username, password))
     print("you're now a registred user. please log in: ")
+    this.logInUser()
 
   }
 
