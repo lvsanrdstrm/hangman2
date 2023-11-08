@@ -53,7 +53,6 @@ export default class UserLogIn {
     // tror inte ja behöver detta om ja appendar till users.csv 
     // users.push(new User(username, password))
     print("you're now a registred user. please log in: ")
-    print(users)
     this.logInUser()
   }
 
