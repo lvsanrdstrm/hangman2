@@ -102,6 +102,7 @@ export default class Game {
       let addWord = new Question("Your prize is that you get to add a word to the wordlist: ")
       this.addWordToList = new RandomSecretWord()
       this.addToList = this.addWordToList.addSecretWord(addWord.answer)
+      print("Thank you, congratulations again and goodbye!")
     } else {
       // goto 20
       this.guessWord()
