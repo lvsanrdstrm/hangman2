@@ -2,7 +2,7 @@ import SecretWord from "./secret-word.js"
 import Question from "./question.js"
 import FoundWord from "./found-word.js"
 import Gallows from "./gallows.js"
-import HemligtOrd from "./generera-ord.js"
+import RandomSecretWord from "./gen-random-SW.js"
 
 const print = console.log
 
@@ -26,8 +26,8 @@ export default class Game {
     this.gallows = new Gallows()
     // 10. ask for secret word                         bass
     // let question = new Question("Type the secret word, don't show your opponent: ") gamla koden, dold för ska testa hämta på annat sätt
-    this.hemligtOrd = new HemligtOrd()
-    this.secretWord = new SecretWord(this.hemligtOrd.getSecretWord())
+    this.randomSecretWord = new RandomSecretWord()
+    this.secretWord = new SecretWord(this.randomSecretWord.getRandomSecretWord())
     print("The secret word has " + this.secretWord.length + " letters")
     // process secret word into chars                  b a s s
     // store found word as empty positions for chars   _ _ _ _
