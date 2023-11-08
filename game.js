@@ -81,6 +81,7 @@ export default class Game {
       this.usedLetters.push(letter)
       print('You are closing up on a certain death. Only ' + this.gallows.stages.length + ' tries left and still ' + this.lettersLeft() + ' letters to find... Do you enjoy living? Try harder.')
       print('You have now tried the following letters: ' + this.usedLetters)
+      print("You have found \n" + this.foundWord.asString)
       // check if gallows is done? exit to loose round
       this.checkLoose()
     }
