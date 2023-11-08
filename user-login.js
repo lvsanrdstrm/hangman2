@@ -54,8 +54,7 @@ export default class UserLogIn {
 
 }
 
-  
-}
+
 
 
 
