@@ -59,7 +59,7 @@ export default class UserLogIn {
   createUser() {
     this.username = prompt("please enter a username: ")
     this.password = prompt("please enter a password: ")
-    appendFileSync('data/users.csv', '\n' + this.username + ',' + this.password + '\n', 'utf8')
+    appendFileSync('data/users.csv', this.username + ',' + this.password + '\n', 'utf8')
     // tror inte ja behöver detta om ja appendar till users.csv 
     // users.push(new User(username, password))
     print("you're now a registred user. please log in: ")
