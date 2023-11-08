@@ -12,12 +12,15 @@ export default class Game {
   secretWord
   foundWord
   gallows
-  hemligtOrd
+  randomSecretWord
+  logIn
 
   usedLetters = []
 
   constructor() {
     print("Welcome to a simple game of hangman. You are doomed!")
+    this.logIn = new UserLogIn()
+    this.logIn.logInUser()
     this.runRound()
   }
 
