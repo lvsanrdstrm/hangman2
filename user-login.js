@@ -34,17 +34,14 @@ export default class UserLogIn {
       print("Welcome, " + user.name)
     } else {
       print("couldn't find a user with the given username and password combo. try again or create a new user?")
-      do {
-        const loginChoice = prompt("press Y to try again or N to create a new user: ").toUpperCase()
-      } while (!this.loginChoice == "Y" || (!this.loginChoice == "N"))
-      if (this.loginChoice == "Y") {
-        this.logInUser()
-      } else if (this.loginChoice == "N") {
+      const loginChoice = prompt("press any key to try again N to create a new user: ").toUpperCase()
+      if (this.loginChoice == "N") {
         this.createUser()
+      } else {
+        this.logInUser()
       }
     }
   }
-
   createUser() {
     username = prompt("please enter your username: ")
     password = prompt("please enter your password: ")
@@ -54,6 +51,10 @@ export default class UserLogIn {
     print("you're now a registred user. please log in: ")
     this.logInUser()
   }
+
+}
+
+  
 }
 
 
