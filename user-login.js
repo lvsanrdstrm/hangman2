@@ -21,6 +21,13 @@ export default class UserLogIn {
 
 
   logInUser() {
+
+    for (let dbUser of dbUsers) {
+      dbUser = dbUser.split(",")
+      if (!user.includes(dbUser))
+        users.push(new User(dbUser[0], dbUser[1]))
+    }
+
     let user
     const username = prompt("please enter your username: ")
     const password = prompt("please enter your password: ")
