@@ -28,12 +28,6 @@ export default class UserLogIn {
 
   logInUser() {
 
-    for (let dbUser of dbUsers) {
-      dbUser = dbUser.split(",")
-      if (!users.includes(dbUser[0], dbUser[1]))
-        users.push(new User(dbUser[0], dbUser[1]))
-    }
-
 
     let user
     const username = prompt("please enter your username: ")
@@ -61,6 +55,11 @@ export default class UserLogIn {
     this.username = prompt("please enter a username: ")
     this.password = prompt("please enter a password: ")
     appendFileSync('data/users.csv', this.username + ',' + this.password + '\n', 'utf8')
+    for (let dbUser of dbUsers) {
+      dbUser = dbUser.split(",")
+      if (!users.includes(dbUser[0], dbUser[1]))
+        users.push(new User(dbUser[0], dbUser[1]))
+    }
     // tror inte ja behöver detta om ja appendar till users.csv 
     // users.push(new User(username, password))
     print("you're now a registred user. please log in: ")
