@@ -7,8 +7,9 @@ import UserLogIn from "./user-login.js"
 
 const print = console.log
 
+/* skapar och exporterar klassen Game*/
 export default class Game {
-
+  /* skapar klassvariabler*/
   secretWord
   foundWord
   gallows
@@ -17,6 +18,7 @@ export default class Game {
 
   usedLetters = []
 
+  /* skapar konstruktor. inleds med printen och sedan kör den userlogin, loginuser och runround */
   constructor() {
     print("Welcome to a simple game of hangman. You are doomed!")
     this.logIn = new UserLogIn()
@@ -26,11 +28,13 @@ export default class Game {
 
 
   runRound() {
-    // create a new gallows
+    // create a new gallows, skapar en ny instans av objektet gallows för just denna runda och hämtar från modulen gallows.
     this.gallows = new Gallows()
     // 10. ask for secret word                         bass
     // let question = new Question("Type the secret word, don't show your opponent: ") gamla koden, dold för ska testa hämta på annat sätt
+    // skapar en instans av objektet randomsecretword
     this.randomSecretWord = new RandomSecretWord()
+
     this.secretWord = new SecretWord(this.randomSecretWord.getRandomSecretWord())
     print("The secret word has " + this.secretWord.length + " letters")
     // process secret word into chars                  b a s s

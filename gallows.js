@@ -83,7 +83,7 @@ export default class Gallows {
     `
   ]
 
-
+  // denna metod returnerar första elementet i arrayen och "skalar" liksom ner den för varje gång den kallas
   step() {
     return this.stages.shift()
   }
